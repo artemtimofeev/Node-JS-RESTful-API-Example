@@ -17,6 +17,4 @@ httpsOptions = {
     cert: fs.readFileSync("certificate.crt") // путь к сертификату
 }
 
-app.listen(PORT, () => console.log('server started on port ${PORT}'));
-
 https.createServer(httpsOptions, app).listen(443);
