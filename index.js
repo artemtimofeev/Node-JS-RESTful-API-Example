@@ -2,7 +2,13 @@ const express = require('express')
 const userRouter = require('./routes/user.routes')
 
 const https = require( "https" );
+const http = require('http');
 const fs = require( "fs" );
+
+const privateKey  = fs.readFileSync('sslcert/private.key', 'utf8');
+const certificate = fs.readFileSync('sslcert/certificate.crt', 'utf8');
+
+const credentials = {key: privateKey, cert: certificate};
 
 const PORT = process.env.PORT || 80
 
@@ -12,9 +18,8 @@ app.use(express.json())
 app.use('/api', userRouter)
 
 
-httpsOptions = {
-    key: fs.readFileSync("private.key"), // путь к ключу
-    cert: fs.readFileSync("certificate.crt") // путь к сертификату
-}
+const httpServer = http.createServer(app);
+const httpsServer = https.createServer(credentials, app);
 
-https.createServer(httpsOptions, app).listen(443);
+httpServer.listen(80);
+httpsServer.listen(443);
