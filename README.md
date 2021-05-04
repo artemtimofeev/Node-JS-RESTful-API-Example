@@ -14,6 +14,9 @@ git clone https://github.com/artemtimofeev/Node-JS-RESTful-API-Example.git
 sudo apt install npm
 npm install
 
+sudo apt-get install libcap2-bin
+sudo setcap cap_net_bind_service=+ep `readlink -f \`which node\`` 
+
 0. Установка зависимостей `npm install`
 1. Создание базы данных PostgreSQL
     1.1 `sudo apt update`
