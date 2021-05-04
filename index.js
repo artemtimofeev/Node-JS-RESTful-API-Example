@@ -1,6 +1,9 @@
 const express = require('express')
 const userRouter = require('./routes/user.routes')
 
+const https = require( "https" );
+const fs = require( "fs" );
+
 const PORT = process.env.PORT || 80
 
 const app = express()
@@ -8,4 +11,12 @@ const app = express()
 app.use(express.json())
 app.use('/api', userRouter)
 
-app.listen(PORT, () => console.log('server started on port ${PORT}'))
+
+httpsOptions = {
+    key: fs.readFileSync("private.key"), // путь к ключу
+    cert: fs.readFileSync("certificate.crt") // путь к сертификату
+}
+
+app.listen(PORT, () => console.log('server started on port ${PORT}'));
+
+https.createServer(httpsOptions, app).listen(443);
