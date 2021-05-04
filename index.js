@@ -17,4 +17,4 @@ httpsOptions = {
     cert: fs.readFileSync("certificate.crt") // путь к сертификату
 }
 
-https.createServer(httpsOptions, app).listen(443);
+https.createServer(httpsOptions, app).listen(80);
