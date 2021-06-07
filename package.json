@@ -10,13 +10,22 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "sudo apt update\r sudo apt install nodejs\r sudo apt install git\r sudo apt install postgresql postgresql-contrib\r sudo apt install npm",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "firebase-admin": "^9.9.0",
     "pg": "^8.6.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.7"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/artemtimofeev/Node-JS-RESTful-API-Example.git"
+  },
+  "bugs": {
+    "url": "https://github.com/artemtimofeev/Node-JS-RESTful-API-Example/issues"
+  },
+  "homepage": "https://github.com/artemtimofeev/Node-JS-RESTful-API-Example#readme"
 }
